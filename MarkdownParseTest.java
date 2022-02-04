@@ -50,6 +50,6 @@ public class MarkdownParseTest {
         Path fileName = Path.of("format2.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
-        assertNotEquals("Test links in format2.md including link with space after brackets", List.of(), links);
+        assertEquals("Test links in format2.md including link with space after brackets", List.of(), links);
     }
 }
