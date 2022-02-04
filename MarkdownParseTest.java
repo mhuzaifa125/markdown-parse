@@ -42,6 +42,14 @@ public class MarkdownParseTest {
         Path fileName = Path.of("test2.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
-        assertEquals("Test links in test2.md including link without parenthesis", List.of("gmail.com"), links);
+        assertEquals("Test links in test2.md including link without parenthesis", List.of(), links);
+    }
+
+    @Test
+    public void testFormatTwo() throws IOException {
+        Path fileName = Path.of("format2.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        assertNotEquals("Test links in format2.md including link with space after brackets", List.of(), links);
     }
 }
